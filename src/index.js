@@ -1,19 +1,25 @@
 const addBtn = document.getElementById('new-button')
 const addForm = document.querySelector('.itemForm')
-const cancelButton = document.getElementById('cancel')
+const list = document.querySelector('.item-list')
 let addItem = false;
 
 // on load, renders items currently saved
-document.addEventListener('DOMContentLoaded', () => {
+
     const app = new App();
     app.attachEventListeners();
 
+    makeItems();
+
+// make into function
+function makeItems() {
     app.adapter.fetchItems().then(json => {
       json.forEach(item => {
-        document.querySelector('.item-list').innerHTML += new Item(item).renderListItem();
+        let appendItem = (new Item(item)).renderListItem();
+        list.appendChild(appendItem)
+        dragElement(appendItem)
       });
     });
-  });
+}
 
   addBtn.addEventListener('click', () => {
     addItem = !addItem
@@ -24,12 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-
   function createItem(e) {
   e.preventDefault();
-  addForm.style.display = 'none'
   let inputs = document.querySelectorAll(".input-text");
-  console.log(inputs)
+
   let title = inputs[0].value
   let category = inputs[1].value
   let link = inputs[2].value
@@ -46,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     method: "POST",
     headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
     body: JSON.stringify(info)
-  }).then(res => res.json()).then(renderListItem())
+  }).then(res => res.json()).then(data =>{
+    let appendItem = (new Item(data)).renderListItem();
+    list.appendChild(appendItem)
+    dragElement(appendItem)
+  })
+
+
 
 }

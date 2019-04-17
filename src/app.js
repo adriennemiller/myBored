@@ -5,7 +5,7 @@ constructor() {
   }
 
   attachEventListeners() {
-    document.querySelector('.item-list').addEventListener('click', e => {
+    document.querySelector('.item-list').addEventListener('dblclick', e => {
       const url = e.target.src
       const item = Item.findByPic(url)
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
@@ -15,20 +15,31 @@ constructor() {
        e.preventDefault();
        const id = parseInt(e.target.dataset.id);
        const item = Item.findById(id);
-       console.log(item)
        const title = e.target.querySelector('#title').value;
        const category = e.target.querySelector('#category').value;
        const url = e.target.querySelector('#url').value;
        const image = e.target.querySelector('#image').value;
        const jsonBody = { title, category, url, image };
-       this.adapter.updateItem(item.id, jsonBody).then(updatedItem => console.log(updatedItem));
+       this.adapter.updateItem(item.id, jsonBody, item)
+
+       
+       // render this list item
+
+
+
+       let form = document.getElementById("uform")
+       form.classList.add("js-is-hidden")
   });
+
 }
   addItems() {
     document.querySelector('.item-list').innerHTML = '';
-    Item.all.forEach(
-      item => (document.querySelector('.item-list').innerHTML += item.renderListItem())
-    );
+    Item.all.forEach(item => {
+      item.renderListItem();
+      let list = document.querySelector('.item-list')
+      list.appendChild(item)
+      dragElement(item)
+    })
   }
 
   handleFormSubmit(e) {

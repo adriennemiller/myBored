@@ -1,5 +1,9 @@
 
-dragElement(outer.getElementById("couch"));
+let draggables = document.getElementsByClassName('draggable')
+for (let i = 0; i < draggables.length; i++) {
+  let el = draggables[i]
+  dragElement(el);
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;

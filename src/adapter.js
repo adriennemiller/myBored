@@ -8,7 +8,7 @@ class Adapter {
     return fetch(`${this.baseUrl}/items`).then(res => res.json());
   }
 
-  updateItem(id, body) {
+  updateItem(id, body, item) {
     return fetch(`${this.baseUrl}/items/${id}`, {
       method: 'PATCH',
       headers: {
@@ -16,13 +16,14 @@ class Adapter {
          Accept: 'application/json',
       },
       body: JSON.stringify(body),
-    }).then(res => res.json());
+    }).then(res => res.json()).then(data => {
+    item.update(data)
+    item.rerender()
+
+    })
   }
 
-  // deleteItem(){
-  //
-  //
-  // }
+
 
 
 }

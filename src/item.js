@@ -8,19 +8,33 @@ class Item {
     Item.all.push(this);
   }
 
-  renderListItem() {
-    return `
-    <div class="item-list moveable" id="${this.title}" data-id=${this.id}>
-      <img class="item-list" src="${this.image}" alt="image" width="100" height="100" id="img">
-    </div>`;
+  update(data) {
+    this.id = data.id;
+    this.title = data.title;
+    this.category = data.category;
+    this.image = data.image;
+    this.url = data.url;
   }
 
-  // <h3>${this.title}
-  //   <button data-id=${this.id}>edit</button>
-  // </h3>
-  // <p>
-  // ${this.category}
-  // </p>
+  renderListItem() {
+    let item = document.createElement('div')
+    item.classList.add('item-list')
+    item.classList.add('draggable')
+    item.id = this.id
+
+    let img = document.createElement('img')
+    img.src = this.image
+    img.alt = 'image'
+
+    item.appendChild(img)
+    return item;
+}
+
+  rerender(){
+    let div = document.getElementById(this.id)
+    div.firstElementChild.src = this.image
+  }
+
 
   static findById(id) {
     return this.all.find(item => item.id === id);
@@ -50,7 +64,8 @@ class Item {
       <p>
         <input id="image" type="text" value="${this.image}" />
       </p>
-      <button type='submit'>Save Item</button>
+      <button type='submit'>Save Item</button><br><br>
+      <button type='button' id='deleteButton'>Delete Item</button>
     </form>
   `;
   }
@@ -64,7 +79,3 @@ class Item {
 }
 
 Item.all = [];
-
-let items = Item.all
-
-console.log(items)
