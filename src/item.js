@@ -20,11 +20,16 @@ class Item {
     let item = document.createElement('div')
     item.classList.add('item-list')
     item.classList.add('draggable')
+    // add a button?
+    // item.classList.add('item-card')
+    // let button = document.createElement("button")
+    // button.textContent = "Edit"
     item.id = this.id
 
     let img = document.createElement('img')
     img.src = this.image
     img.alt = 'image'
+
 
     item.appendChild(img)
     return item;
@@ -61,26 +66,31 @@ class Item {
 
   renderUpdateForm() {
     return `
+    <div id="overlay-update">
+    <div id="updateFormBox">
     <form data-id=${this.id} id="uform">
       <label>Title</label>
       <p>
-        <input type="text" id="title" value="${this.title}"/>
+        <input type="text" id="title" class="form-control" value="${this.title}"/>
       </p>
       <label>Category</label>
       <p>
-        <input type="text" id="category" value="${this.category}" />
+        <input type="text" id="category" class="form-control" value="${this.category}" />
       </p>
       <label>Link</label>
       <p>
-        <input type="text" id="url" value="${this.url}" />
+        <input type="text" id="url" class="form-control" value="${this.url}" />
       </p>
       <label>Image URL</label>
       <p>
-        <input id="image" type="text" value="${this.image}" />
+        <input id="image" class="form-control" type="text" value="${this.image}" />
       </p>
-      <button type='submit'>Save Item</button><br><br>
-      <button type='button' id='deleteButton'>Delete Item</button>
+      <button type='submit' class= "btn btn-success">Save Item</button>
+      <button type='button' id='deleteButton' class="btn btn-danger">Delete Item</button>
+      <button type='button' id='cancelEdit' class="btn btn-warning">Cancel</button>
     </form>
+    </div>
+    </div>
   `;
   }
 

@@ -1,25 +1,39 @@
-.board {
-  background-color: lightblue;
-  width: 1500px;
+#loginDiv {
+  display: block;
+  text-align: center;
+  margin: auto;
+  width: 35%;
+  border: .5px solid lightgrey;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
+
 .container {
-  display: flex;
-  flex-wrap: wrap;
+  text-align: center;
+  margin: auto;
+  top: 50%;
+  left: 50%;
   justify-content: center;
 }
 
 .draggable {
   position: absolute;
-  z-index: 9;
+  z-index: -1;
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   text-align: center;
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
 }
 
 
@@ -29,4 +43,82 @@ img {
 
 .hide {
   display: none;
+}
+
+
+#overlay-update {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#overlay-new {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+#formBox{
+  background-color: white;
+  width: 500px;
+  display: block;
+  margin: auto;
+  width: 30%;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+#uform{
+  background-color: white;
+  width: 500px;
+  display: block;
+  margin: auto;
+  width: 30%;
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+.item-card {
+  height: 350px;
+  background-color: lightblue;
 }

@@ -30,9 +30,32 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
+
+    let yy = elmnt.offsetTop - pos2
+    let xx = elmnt.offsetLeft - pos1
+
+    let totalHeight = window.innerHeight
+    let totalWidth = window.innerWidth
+
+    mostTop = totalHeight * .15
+    mostBottom = totalHeight * .6
+
+    mostLeft = totalWidth * .05
+    mostRight = totalWidth * .75
+
+    // be 200 or bigger
+    // if (yy < 200) {
+    //   yy = 200
+    // }
+    yy = Math.max(mostTop, yy)
+    yy = Math.min(mostBottom, yy)
+
+    xx = Math.max(mostLeft, xx)
+    xx = Math.min(mostRight, xx)
+
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.top = yy + "px";
+    elmnt.style.left = xx + "px";
   }
 
   function closeDragElement() {

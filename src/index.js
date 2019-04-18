@@ -3,7 +3,8 @@ const addForm = document.querySelector('.itemForm')
 const list = document.querySelector('.item-list')
 const login = document.getElementById('loginDiv')
 const username = document.getElementById('username')
-let addItem = false;
+const cancel = document.getElementById('cancel-btn')
+
 //
 login.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -60,17 +61,20 @@ function makeItems(url) {
 }
 
   addBtn.addEventListener('click', () => {
-    addItem = !addItem
-    if (addItem) {addForm.style.display = 'block'
-      addForm.addEventListener('submit', createItem)
-    } else {
+    addForm.style.display = 'block'
+    onNew();
+    addForm.addEventListener('submit', createItem)
+    cancel.addEventListener('click', () => {
       addForm.style.display = 'none'
-    }
+      offNew();
+    })
   });
 
   function createItem(e) {
   e.preventDefault();
-  let inputs = document.querySelectorAll(".input-text");
+  addForm.style.display = 'none'
+  offNew();
+  let inputs = document.querySelectorAll(".user-input");
 
   let title = inputs[0].value
   let category = inputs[1].value
@@ -96,7 +100,20 @@ function makeItems(url) {
     list.appendChild(appendItem)
     dragElement(appendItem)
   })
+}
 
+function onUpdate() {
+  document.getElementById("overlay-update").style.display = "block";
+}
 
+function offUpdate() {
+  document.getElementById("overlay-update").style.display = "none";
+}
 
+function onNew() {
+  document.getElementById("overlay-new").style.display = "block";
+}
+
+function offNew() {
+  document.getElementById("overlay-new").style.display = "none";
 }

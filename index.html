@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,7 +13,7 @@
     <div id="loginDiv">
     <form id="loginForm">
     <label for="username">Username:</label>
-    <input type="text" id="username"><br>
+    <input type="text" id="username" class="form-control"><br>
     <input type="submit" name="submit" value="Login" class="btn btn-success">
     </form><br>
     </div>
@@ -36,22 +35,28 @@
 
     <div id='update'></div>
     <div id='new'></div>
-    <div >
+
+    <div id="overlay-new">
+      <div id="formBox">
      <form class="itemForm" style="display:none;">
-        <input type="text" name="title" value="" placeholder="Enter a title" class="input-text" >
+        <input type="text" name="title" value="" placeholder="Enter a title" class="user-input form-control">
         <br>
-        <input type="text" name="category" value="" placeholder="enter category" class="input-text">
+        <input type="text" name="category" value="" placeholder="enter category" class="user-input form-control">
         <br>
-        <input type="text" name="url" value="" placeholder="enter link" class="input-text">
+        <input type="text" name="url" value="" placeholder="enter link" class="user-input form-control">
         <br>
-        <input type="text" name="image" value="" placeholder="enter image url" class="input-text">
+        <input type="text" name="image" value="" placeholder="enter image url" class="user-input form-control">
         <br>
-        <!-- <input type="text" name="id" value="User.all[0].id"> -->
         <br>
-        <input type="submit" name="submit" value="Create New Item" class="submit">
+        <input type="submit" name="submit" value="Create New Item" class="submit btn btn-success">
+        <input type="button" id="cancel-btn" name="cancel-button" value="Cancel" class="btn btn-warning">
       </form>
+      </div>
     </div>
-    <div  class='container item-list'></div>
+
+      <div class='container item-list'></div>
+
+    </div>
   </div>
 
 

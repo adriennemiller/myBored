@@ -10,16 +10,19 @@ constructor() {
       const itemId = parseInt(e.target.parentElement.id)
       const item = Item.findById(itemId)
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      onUpdate();
       document.getElementById('deleteButton').addEventListener('click', e => {
-
       item.deleteItem();
-
-
+      offUpdate();
+      })
+      document.getElementById('cancelEdit').addEventListener('click', e => {
+      offUpdate();
       })
       });
 
        document.querySelector('#update').addEventListener('submit', e => {
        e.preventDefault();
+       offUpdate();
        const id = parseInt(e.target.dataset.id);
        const item = Item.findById(id);
        const title = e.target.querySelector('#title').value;
