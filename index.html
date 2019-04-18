@@ -11,12 +11,24 @@
   </head>
   <body>
 
+    <div id="loginDiv">
+    <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username"><br>
+    <input type="submit" name="submit" value="Login" class="btn btn-success">
+    </form><br>
+    </div>
+
+    <div class="hide" id="mainContent">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">myBored</a>
+      <a class="navbar-brand">myBored</a>
       <div id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#" id='new-button'>Add New Item</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id='logoutButton' onclick="window.location.reload()">Logout</a>
           </li>
         </ul>
       </div>
@@ -38,11 +50,14 @@
       </form>
     </div>
     <div  class='container item-list'></div>
+  </div>
+
 
     <script defer src="src/app.js" charset="utf-8"></script>
     <script defer src="src/item.js" charset="utf-8"></script>
     <script defer src="src/adapter.js" charset="utf-8"></script>
     <script defer src="src/draggable.js" charset="utf-8"></script>
+    <script defer src="src/user.js" charset="utf-8"></script>
     <script defer src="src/index.js" charset="utf-8"></script>
   </body>
 </html>

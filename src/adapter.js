@@ -19,7 +19,6 @@ class Adapter {
     }).then(res => res.json()).then(data => {
     item.update(data)
     item.rerender()
-
     })
   }
 

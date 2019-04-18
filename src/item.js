@@ -35,15 +35,29 @@ class Item {
     div.firstElementChild.src = this.image
   }
 
+  deleteItem(){
+    let div = document.getElementById(this.id)
+
+    fetch(`http://localhost:3000/api/v1/items/${this.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+         Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        "title": this.title,
+        "url": this.url,
+        "image": this.image,
+        "category": this.category,
+        "id": this.id
+      }),
+    }).then(div.remove())
+  }
+
 
   static findById(id) {
     return this.all.find(item => item.id === id);
   }
-
-  static findByPic(url){
-    return this.all.find(item => item.image === url);
-  }
-
 
   renderUpdateForm() {
     return `

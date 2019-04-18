@@ -6,9 +6,16 @@ constructor() {
 
   attachEventListeners() {
     document.querySelector('.item-list').addEventListener('dblclick', e => {
-      const url = e.target.src
-      const item = Item.findByPic(url)
+
+      const itemId = parseInt(e.target.parentElement.id)
+      const item = Item.findById(itemId)
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      document.getElementById('deleteButton').addEventListener('click', e => {
+
+      item.deleteItem();
+
+
+      })
       });
 
        document.querySelector('#update').addEventListener('submit', e => {
@@ -22,7 +29,7 @@ constructor() {
        const jsonBody = { title, category, url, image };
        this.adapter.updateItem(item.id, jsonBody, item)
 
-       
+
        // render this list item
 
 
