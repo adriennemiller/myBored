@@ -29,24 +29,32 @@ function addUser(user){
   })
   .then(resp => resp.json()).then(data => {
 
-    let user = (new User(data))
-
-
+    const user = (new User(data))
+    const userId = user.id
+    let url = `http://localhost:3000/api/v1/users/${userId}`
+    makeItems(url);
   })
+
 }
+
+
+
 
     const app = new App();
     app.attachEventListeners();
 
-    makeItems();
 
 
-function makeItems() {
-    app.adapter.fetchItems().then(json => {
-      json.forEach(item => {
-        let appendItem = (new Item(item)).renderListItem();
+function makeItems(url) {
+    fetch(url).then(res => res.json()).then(data => {
+      let pics = data.items
+      pics.forEach(pic => {
+        if (pic.user_id === User.all[0].id){
+        let appendItem = (new Item(pic)).renderListItem();
         list.appendChild(appendItem)
-        dragElement(appendItem)
+        dragElement(appendItem)} else {
+          console.log("nothing yet!")
+        }
       });
     });
 }
@@ -68,12 +76,14 @@ function makeItems() {
   let category = inputs[1].value
   let link = inputs[2].value
   let image = inputs[3].value
+  let id = User.all[0].id
 
   let info = {
     title: title,
     category: category,
     url: link,
-    image: image
+    image: image,
+    user_id: id
   }
 
   fetch("http://localhost:3000/api/v1/items", {
@@ -81,6 +91,7 @@ function makeItems() {
     headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
     body: JSON.stringify(info)
   }).then(res => res.json()).then(data =>{
+    console.log(data)
     let appendItem = (new Item(data)).renderListItem();
     list.appendChild(appendItem)
     dragElement(appendItem)
