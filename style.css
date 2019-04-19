@@ -1,4 +1,182 @@
-.board {
+#loginDiv {
+  display: block;
+  text-align: left;
+  font-family: 'Quicksand', sans-serif;
+  margin: auto;
+  width: 35%;
+  height: 35%;
+  background-color: white;
+  border: .5px solid lightgrey;
+  border-radius: 15px;
+  padding: 75px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+body, html {
+  height: 100%;
+}
+
+.login-logo {
+ font-family: 'Pacifico', cursive;
+ font-size: 90px;
+ display: block;
+ text-align: center;
+ padding: 75px;
+}
+
+.logo{
+  font-family: 'Pacifico', cursive;
+}
+
+.straight{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.container {
+  text-align: center;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.draggable {
+  position: absolute;
+  z-index: 1;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  -moz-box-shadow:    5px 5px 10px 1px #353535;
+  -webkit-box-shadow: 5px 5px 10px 1px #353535;
+  box-shadow:         5px 5px 10px 1px #353535;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+
+.js-is-hidden {
+    display: none;
+}
+
+.hide {
+  display: none;
+}
+
+
+#overlay-update {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#overlay-new {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  font-family: 'Quicksand', sans-serif;
+}
+
+#formBox{
+  background-color: white;
+  width: 500px;
+  display: block;
+  margin: auto;
+  width: 30%;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+#uform{
+  background-color: white;
+  width: 500px;
+  display: block;
+  margin: auto;
+  width: 30%;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.item-card {
+  height: 350px;
   background-color: lightblue;
-  width: 1500px;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("corkboard.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.navbar {
+  height: 70px;
+  background-color: white;
 }

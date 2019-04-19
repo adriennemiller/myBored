@@ -5,32 +5,52 @@ constructor() {
   }
 
   attachEventListeners() {
-    document.querySelector('#item-list').addEventListener('click', e => {
-      const id = parseInt(e.target.dataset.id);
-      const item = Item.findById(id);
+    document.querySelector('.item-list').addEventListener('dblclick', e => {
 
+      const itemId = parseInt(e.target.parentElement.id)
+      const item = Item.findById(itemId)
+      
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
+      onUpdate();
+      document.getElementById('deleteButton').addEventListener('click', e => {
+      item.deleteItem();
+      offUpdate();
+      })
+      document.getElementById('cancelEdit').addEventListener('click', e => {
+      offUpdate();
+      })
       });
-
 
        document.querySelector('#update').addEventListener('submit', e => {
        e.preventDefault();
+       offUpdate();
        const id = parseInt(e.target.dataset.id);
        const item = Item.findById(id);
-       console.log(item)
        const title = e.target.querySelector('#title').value;
        const category = e.target.querySelector('#category').value;
        const url = e.target.querySelector('#url').value;
        const image = e.target.querySelector('#image').value;
        const jsonBody = { title, category, url, image };
-       this.adapter.updateItem(item.id, jsonBody).then(updatedItem => console.log(updatedItem));
+       this.adapter.updateItem(item.id, jsonBody, item)
+
+
+       // render this list item
+
+
+
+       let form = document.getElementById("uform")
+       form.classList.add("js-is-hidden")
   });
+
 }
   addItems() {
-    document.querySelector('#item-list').innerHTML = '';
-    Item.all.forEach(
-      item => (document.querySelector('#item-list').innerHTML += item.renderListItem())
-    );
+    document.querySelector('.item-list').innerHTML = '';
+    Item.all.forEach(item => {
+      item.renderListItem();
+      let list = document.querySelector('.item-list')
+      list.appendChild(item)
+      dragElement(item)
+    })
   }
 
   handleFormSubmit(e) {
