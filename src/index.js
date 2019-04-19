@@ -12,8 +12,9 @@ login.addEventListener('submit', (e) => {
   div.classList.remove("hide");
   let user = username.value
   addUser(user);
-  let lgn = document.getElementById('loginDiv')
-  lgn.setAttribute("style", "display: none;")
+  document.getElementById('loginDiv').style.display = "none";
+  document.querySelector('.login-logo').style.display = "none";
+
 })
 
 

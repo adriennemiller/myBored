@@ -9,6 +9,7 @@ constructor() {
 
       const itemId = parseInt(e.target.parentElement.id)
       const item = Item.findById(itemId)
+      
       document.querySelector('#update').innerHTML = item.renderUpdateForm();
       onUpdate();
       document.getElementById('deleteButton').addEventListener('click', e => {

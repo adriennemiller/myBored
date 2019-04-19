@@ -69,7 +69,13 @@ class Item {
     <div id="overlay-update">
     <div id="updateFormBox">
     <form data-id=${this.id} id="uform">
-      <h4>Edit Item:</h4>
+      <h4>${this.title}</h4>
+      <p>${this.cateogory}</p>
+      <a href="${this.url}">Visit URL of Current Item</a>
+      <br>
+      <br
+      <p>_________________________</p>
+      <h5>Edit Item:</h5>
       <label>Title</label>
       <p>
         <input type="text" id="title" class="form-control" value="${this.title}"/>
@@ -78,17 +84,17 @@ class Item {
       <p>
         <input type="text" id="category" class="form-control" value="${this.category}" />
       </p>
-      <label>Link</label>
+      <label>Item URL</label>
       <p>
         <input type="text" id="url" class="form-control" value="${this.url}" />
       </p>
-      <label>Image URL</label>
+      <label>Image Link</label>
       <p>
         <input id="image" class="form-control" type="text" value="${this.image}" />
       </p>
       <button type='submit' class= "btn btn-outline-info">Save Item</button>
       <button type='button' id='deleteButton' class="btn btn-outline-danger">Delete Item</button>
-      <button type='button' id='cancelEdit' class="btn btn-outline-warning">Cancel</button>  
+      <button type='button' id='cancelEdit' class="btn btn-outline-warning">Cancel</button>
     </form>
     </div>
     </div>
