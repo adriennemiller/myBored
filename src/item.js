@@ -70,7 +70,7 @@ class Item {
     <div id="updateFormBox">
     <form data-id=${this.id} id="uform">
       <h4>${this.title}</h4>
-      <p>${this.cateogory}</p>
+      <p>${this.category}</p>
       <a href="${this.url}">Visit URL of Current Item</a>
       <br>
       <br

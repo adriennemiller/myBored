@@ -50,17 +50,14 @@ body, html {
 .draggable {
   position: absolute;
   z-index: 1;
-  background-color: #f1f1f1;
-  border: 1px solid #d3d3d3;
-  text-align: center;
   -moz-box-shadow:    5px 5px 10px 1px #353535;
   -webkit-box-shadow: 5px 5px 10px 1px #353535;
   box-shadow:         5px 5px 10px 1px #353535;
 }
 
 img {
-  width: 300px;
-  height: 300px;
+  max-width:300px;
+  height:auto;
 }
 
 
@@ -148,10 +145,6 @@ img {
 
 }
 
-.item-card {
-  height: 350px;
-  background-color: lightblue;
-}
 
 .bg {
   /* The image used */

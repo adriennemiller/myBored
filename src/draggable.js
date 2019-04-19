@@ -37,11 +37,11 @@ function dragElement(elmnt) {
     let totalHeight = window.innerHeight
     let totalWidth = window.innerWidth
 
-    mostTop = totalHeight * .15
-    mostBottom = totalHeight * .6
+    mostTop = totalHeight * .1
+    mostBottom = totalHeight * .72
 
-    mostLeft = totalWidth * .05
-    mostRight = totalWidth * .75
+    mostLeft = totalWidth * .01
+    mostRight = totalWidth * .72
 
     // be 200 or bigger
     // if (yy < 200) {
