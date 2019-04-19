@@ -3,9 +3,11 @@
   text-align: center;
   margin: auto;
   width: 35%;
+  height: 35%;
+  background-color: white;
   border: .5px solid lightgrey;
   border-radius: 15px;
-  padding: 10px;
+  padding: 75px;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -13,6 +15,11 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+body, html {
+  height: 100%;
+}
+
 
 
 .container {
@@ -25,7 +32,7 @@
 
 .draggable {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   text-align: center;
@@ -121,4 +128,17 @@ img {
 .item-card {
   height: 350px;
   background-color: lightblue;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("corkboard.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

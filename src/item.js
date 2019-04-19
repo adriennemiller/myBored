@@ -69,6 +69,7 @@ class Item {
     <div id="overlay-update">
     <div id="updateFormBox">
     <form data-id=${this.id} id="uform">
+      <h4>Edit Item:</h4>
       <label>Title</label>
       <p>
         <input type="text" id="title" class="form-control" value="${this.title}"/>

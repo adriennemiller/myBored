@@ -10,6 +10,7 @@
   </head>
   <body>
 
+    <div class="bg">
     <div id="loginDiv">
     <form id="loginForm">
     <label for="username">Username:</label>
@@ -36,9 +37,11 @@
     <div id='update'></div>
     <div id='new'></div>
 
+
     <div id="overlay-new">
       <div id="formBox">
      <form class="itemForm" style="display:none;">
+       <h4>Add a New Item:</h4>
         <input type="text" name="title" value="" placeholder="Enter a title" class="user-input form-control">
         <br>
         <input type="text" name="category" value="" placeholder="enter category" class="user-input form-control">
@@ -54,11 +57,12 @@
       </div>
     </div>
 
+
       <div class='container item-list'></div>
 
     </div>
   </div>
-
+</div>
 
     <script defer src="src/app.js" charset="utf-8"></script>
     <script defer src="src/item.js" charset="utf-8"></script>
