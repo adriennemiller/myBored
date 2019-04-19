@@ -86,9 +86,9 @@ class Item {
       <p>
         <input id="image" class="form-control" type="text" value="${this.image}" />
       </p>
-      <button type='submit' class= "btn btn-success">Save Item</button>
-      <button type='button' id='deleteButton' class="btn btn-danger">Delete Item</button>
-      <button type='button' id='cancelEdit' class="btn btn-warning">Cancel</button>
+      <button type='submit' class= "btn btn-outline-info">Save Item</button>
+      <button type='button' id='deleteButton' class="btn btn-outline-danger">Delete Item</button>
+      <button type='button' id='cancelEdit' class="btn btn-outline-warning">Cancel</button>  
     </form>
     </div>
     </div>
